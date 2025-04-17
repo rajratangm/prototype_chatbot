@@ -1,0 +1,83 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 220 20% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 20%;
+
+    --primary: 217 85% 27%;
+    --primary-foreground: 210 20% 98%;
+
+    --secondary: 217 33% 97%;
+    --secondary-foreground: 220 20% 20%;
+
+    --muted: 217 33% 97%;
+    --muted-foreground: 220 10% 40%;
+
+    --accent: 210 40% 96%;
+    --accent-foreground: 220 20% 20%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 221 83% 53%;
+
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .chat-bubble-user {
+    @apply bg-[#e2ecf7] text-[#0b3c7c] rounded-2xl rounded-tr-sm py-2 px-4 border border-[#bbd3e9];
+  }
+  
+  .chat-bubble-bot {
+    @apply bg-white text-[#333333] rounded-2xl rounded-tl-sm py-2 px-4 border border-[#dde6f0];
+  }
+  
+  .typing-indicator {
+    @apply inline-flex space-x-1;
+  }
+  
+  .typing-indicator-dot {
+    @apply w-2 h-2 bg-[#0b3c7c] rounded-full;
+    animation: bounce 1.4s infinite ease-in-out both;
+  }
+  
+  .typing-indicator-dot:nth-child(1) {
+    animation-delay: -0.32s;
+  }
+  
+  .typing-indicator-dot:nth-child(2) {
+    animation-delay: -0.16s;
+  }
+}
+
+@keyframes bounce {
+  0%, 80%, 100% { 
+    transform: scale(0);
+  } 
+  40% { 
+    transform: scale(1.0);
+  }
+}
